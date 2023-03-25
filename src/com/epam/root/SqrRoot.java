@@ -1,12 +1,19 @@
 package com.epam.root;
 
-public class SqrRoot {
-    public static void main(String[] args) {
-        int x = 16;
+class Solution {
+    public int mySqrt(int x) {
         int n = x;
-        while (n*n > x)
+        while (n * n > x) {
             n = (n + x / n) / 2;
-        System.out.println(n);
+        }
+        return n;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int x = 8;
+        int result = solution.mySqrt(x);
+        System.out.println(result);
     }
 }
 
