@@ -1,20 +1,21 @@
 package com.epam.lastword;
 
-public class LastWord {
-    public static void main(String[] args) {
-        String s = ("Spring is coming in a few months");
+class Solution {
+    public int lengthOfLastWord(String s) {
         String[] sArray;
         sArray = s.split(" ");
         for (int i=0;i<=sArray.length;i++) {
             if (i==sArray.length-1){
                 String str = sArray[i];
-                System.out.println(str.length());
+                return str.length();
             }
         }
-
-
-
-
-
+        return 0;
+    }
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s = "Spring is coming in a few months";
+        int result = solution.lengthOfLastWord(s);
+        System.out.println(result);
     }
 }
