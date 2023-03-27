@@ -11,11 +11,13 @@ public class Fibbonacci_n {
         }
         int a = 0;
         int b = 1;
+        System.out.println(0);
+        System.out.println(1);
         for (int i = 2; i <= number; i++) {
             int c = a + b;
             a = b;
             b = c;
-            if (i == number) {
+            if (i <= number) {
                 System.out.println(b);
             }
 
