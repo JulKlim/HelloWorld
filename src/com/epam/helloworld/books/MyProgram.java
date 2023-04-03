@@ -3,12 +3,22 @@ package com.epam.helloworld.books;
 import java.util.Arrays;
 import java.util.Comparator;
 public class MyProgram {
+    public static void sortingBooksByCriteria(Book[] books, Comparator<Book> comparator) {
+        Arrays.sort(books, comparator);
+    }
+
+    public static void printingBooks(Book[] books) {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
     public static void main(String[] args) {
-        Author Author1 = new Author(54,"George", "Orwell");
-        Author Author2 = new Author(657, "Jane","Austen");
-        Author Author3 = new Author(78, "Suzanne","Collins");
+        Author Author1 = new Author(54, "George", "Orwell");
+        Author Author2 = new Author(657, "Jane", "Austen");
+        Author Author3 = new Author(78, "Suzanne", "Collins");
         Author Author4 = new Author(68, "Arthur", "Conan Doyle");
-        Author Author5 = new Author(975,"Harper", "Lee");
+        Author Author5 = new Author(975, "Harper", "Lee");
 
 
         Publisher Publisher1 = new Publisher(435, "HarperCollins", "195 Broadway, New York, NY 10007, United States");
@@ -25,10 +35,8 @@ public class MyProgram {
         Book Book5 = new Book(11144477, "To Kill a Mockingbird", Author5, Publisher5, "01:02:1956", true);
 
         Book[] books = {Book1, Book2, Book3, Book4, Book5};
-        Arrays.sort(books, Comparator.comparing(Book::getISBN));
-        for (Book book: books) {
-            System.out.println(book);
-        }
+        sortingBooksByCriteria(books, Comparator.comparing(Book::getISBN));
+        printingBooks(books);
 
     }
 }
