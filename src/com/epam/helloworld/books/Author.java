@@ -1,37 +1,35 @@
 package com.epam.helloworld.books;
 
 public class Author{
-    public int ID;
-    public String FirstName;
-    public String LastName;
-    public Author(int ID, String FirstName, String LastName) {
-        this.ID = ID;
-        this.FirstName = FirstName;
-        this.LastName = LastName;
+    public int id;
+    public String firstName;
+    public String lastName;
+    public Author(int ID, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
     public int getID(){
-        return ID;
+        return id;
     }
-    public void setID(int ID){
-        this.ID = ID;
+    public void setID(int id){
+        this.id = id;
     }
     public String getFirstName(){
-        return FirstName;
+        return firstName;
     }
-    public void setFirstName(String FirstName){
-        this.FirstName = FirstName;
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
     }
     public String getLastName(){
-        return LastName;
+        return lastName;
     }
     public void setLastName(String LastName){
-        this.LastName = LastName;
+        this.lastName = lastName;
     }
     @Override
     public String toString() {
-        return "ID = " +
-                "First Name = " + FirstName +
-                ", Last Name = " + LastName;
+        return "ID = " + id + ", First Name = " + firstName + ", Last Name = " + lastName;
     }
 
 }

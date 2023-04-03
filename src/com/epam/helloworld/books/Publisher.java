@@ -1,35 +1,38 @@
 package com.epam.helloworld.books;
 
 public class Publisher{
-    public int ID;
-    public String PublisherName;
-    public String Address;
+    public int id;
+    public String publisherName;
+    public String address;
 
-    public Publisher(int ID, String PublisherName, String Address) {
-        this.ID = ID;
-        this.PublisherName = PublisherName;
-        this.Address = Address;
+    public Publisher(int id, String publisherName, String address) {
+        this.id = id;
+        this.publisherName = publisherName;
+        this.address = address;
     }
     public int getID(){
-        return ID;
+
+        return id;
     }
-    public void setID(int ID){
-        this.ID = ID;
+    public void setID(int id){
+
+        this.id = id;
     }
     public String getPublisherName(){
-        return PublisherName;
+        return publisherName;
     }
-    public void setPublisherName(String PublisherName){
-        this.PublisherName = PublisherName;
+    public void setPublisherName(String publishername){
+        this.publisherName = publishername;
     }
     public String getAddress(){
-        return Address;
+        return address;
     }
-    public void setAddress(String Address){
-        this.Address = Address;
+    public void setAddress(String address){
+
+        this.address = address;
     }
     @Override
     public String toString() {
-        return "ID = "  + ID + ", Publisher Name = " + PublisherName + ", Address = " + Address;
+        return "ID = "  + id + ", Publisher Name = " + publisherName + ", Address = " + address;
     }
 }

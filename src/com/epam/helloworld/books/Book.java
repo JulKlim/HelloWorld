@@ -1,58 +1,62 @@
 package com.epam.helloworld.books;
 
 public class Book {
-    public int ISBN;
-    public String Name;
-    public String Authors;
-    public String Publisher;
-    public String PublicationDate;
-    public boolean Paperback;
-    public Book(int ISBN, String Name, String Authors, String Publisher, String PublicationDate, boolean Paperback) {
-        this.ISBN = ISBN;
-        this.Name = Name;
-        this.Authors = Authors;
-        this.Publisher = Publisher;
-        this.PublicationDate = PublicationDate;
-        this.Paperback = Paperback;
+    public int isbn;
+    public String name;
+    private Author authors;
+    private Publisher publisher;
+    public String publicationDate;
+    public boolean paperback;
+    public Book(int isbn, String name, Author authors, Publisher publisher, String publicationDate, boolean paperback) {
+        this.isbn = isbn;
+        this.name = name;
+        this.authors = authors;
+        this.publisher = publisher;
+        this.publicationDate = publicationDate;
+        this.paperback = paperback;
     }
     public int getISBN() {
-        return ISBN;
+
+        return isbn;
     }
-    public void setISBN(int ISBN){
-        this.ISBN = ISBN;
+    public void setISBN(int isbn){
+
+        this.isbn = isbn;
     }
     public String getName(){
-        return Name;
+
+        return name;
     }
-    public void setName(String Name){
-        this.Name = Name;
+    public void setName(String name){
+
+        this.name = name;
     }
-    public String getAuthors(){
-        return Authors;
+    public Author getAuthor(){
+        return authors;
     }
-    public void setAuthors(String Authors){
-        this.Authors = Authors;
-    }
-    public String getPublisher(){
-        return Publisher;
-    }
-    public void setPublisher(String Publisher){
-        this.Publisher = Publisher;
+    public Publisher getPublisher(){
+        return publisher;
     }
     public String getPublicationDate(){
-        return PublicationDate;
+
+        return publicationDate;
     }
-    public void setPublicationDate(String PublicationDate){
-        this.PublicationDate = PublicationDate;
+    public void setPublicationDate(String publicationDate){
+
+        this.publicationDate = publicationDate;
     }
     public boolean getPaperback(){
-        return Paperback;
+
+        return paperback;
     }
     public void setPaperback(boolean Paperback){
-        this.Paperback = Paperback;
+
+        this.paperback = paperback;
     }
     @Override
     public String toString() {
-        return "ISBN = "  + ISBN + ", Name = " + Name + ", Authors = " + Authors + ", Publisher = " + Publisher + ", Publication Date = " + PublicationDate + ", Paperback = " + Paperback;
+        return "ISBN = "  + isbn + ", Name = " + name + ", Authors = " + authors + ", Publisher = " + publisher + ", Publication Date = " + publicationDate + ", Paperback = " + paperback;
     }
+
+
 }
