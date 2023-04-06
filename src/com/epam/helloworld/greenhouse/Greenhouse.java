@@ -3,7 +3,7 @@ package com.epam.helloworld.greenhouse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
-import java.util.stream.Collectors;
+
 public class Greenhouse {
     public List<Plants> plants;
 
@@ -25,7 +25,7 @@ public class Greenhouse {
         System.out.println("Plants in the greenhouse sorted by type:");
         List<Plants> sortedPlants = plants.stream()
                 .sorted(Comparator.comparing(Plants::getType))
-                .collect(Collectors.toList());
+                .toList();
 
         for (Plants plant : sortedPlants) {
             System.out.println(plant.getInfoAboutPlant());
@@ -36,15 +36,11 @@ public class Greenhouse {
         System.out.println("Plants in the greenhouse sorted by native region:");
         List<Plants> sortedPlants = plants.stream()
                 .sorted(Comparator.comparing(Plants::getRegion))
-                .collect(Collectors.toList());
+                .toList();
 
         for (Plants plant : sortedPlants) {
             System.out.println(plant.getInfoAboutPlant());
         }
-    }
-
-    public void updatePlantSpecialNeeds(Plants plant, String newSpecialNeeds) {
-        plant.updateInfoAboutPlant(newSpecialNeeds);
     }
 
     public void water() {
