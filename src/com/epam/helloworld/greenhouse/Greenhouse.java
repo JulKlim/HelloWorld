@@ -47,9 +47,31 @@ public class Greenhouse {
         System.out.println("The plants are watered");
     }
 
-    public void changeTemperature() {
-        System.out.println("The temperature is changed");
+
+    public static class TemperatureController {        //Nested class
+        static int temperature;
+
+        TemperatureController(int temperature) {
+            TemperatureController.temperature = temperature;
+        }
+
+        public String getTemperatureInfo() {
+            return "Temperature: " + temperature + "degrees";
+        }
+
+        public static void checkTemperature() {
+            if (temperature <= 10) {
+                int increasedTemperature = temperature + 5;
+                System.out.println("The temperature is increased. Current temperature is " + increasedTemperature + " degrees");
+            } else if (temperature >= 25) {
+                int decreasedTemperature = temperature - 5;
+                System.out.println("The temperature is decreased. Current temperature is " + decreasedTemperature + " degrees");
+            } else {
+                System.out.println("The temperature is normal. Current temperature is " + temperature + " degrees");
+            }
+        }
     }
+
 }
 
 

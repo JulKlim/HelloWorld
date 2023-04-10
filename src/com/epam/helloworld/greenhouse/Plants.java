@@ -7,5 +7,5 @@ public interface Plants {
 
     String getRegion();
 
-    void updateInfoAboutPlant(String info);
+    public void updateInfoAboutPlant(String info);
 }
