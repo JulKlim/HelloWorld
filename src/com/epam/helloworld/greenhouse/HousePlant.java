@@ -6,11 +6,14 @@ public class HousePlant implements Plants {
     public String nativeRegion;
     public String specialNeeds;
 
-    public HousePlant(String name, String nativeRegion, String specialNeeds, String houseType) {
+    public HouseplantCare care;
+
+    public HousePlant(String name, String nativeRegion, String specialNeeds, String houseType, HouseplantCare care) {
         this.houseType = houseType;
         this.name = name;
         this.nativeRegion = nativeRegion;
         this.specialNeeds = specialNeeds;
+        this.care = care;
     }
 
 
@@ -49,5 +52,32 @@ public class HousePlant implements Plants {
 
     public void spray() {
         System.out.println("The House plant is misted");
+    }
+
+    //Inner class
+    public class HouseplantCare {
+        String wateringInstructions;
+        boolean needsFertilizer;
+        String soilType;
+
+        public HouseplantCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+            this.wateringInstructions = wateringInstructions;
+            this.needsFertilizer = needsFertilizer;
+            this.soilType = soilType;
+        }
+
+        public String getInfoAboutHousePlant() {
+            return "Watering instructions: " + wateringInstructions + ",  Is fertilize needed: " + needsFertilizer + ", Soil type: " + soilType;
+        }
+    }
+
+    @Override
+    public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+        this.care = new HouseplantCare(wateringInstructions, needsFertilizer, soilType);
+    }
+
+    @Override
+    public String getCareInfo() {
+        return care.getInfoAboutHousePlant();
     }
 }

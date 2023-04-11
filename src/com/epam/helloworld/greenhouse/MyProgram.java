@@ -2,14 +2,23 @@ package com.epam.helloworld.greenhouse;
 
 public class MyProgram {
     public static void main(String[] args) {
-        Plants plant1 = PlantFactory.createPlant("floweringPlant", "African Violet", "Tanzania", "Needs bright indirect light", "Flowering Plant");
-        Plants plant2 = PlantFactory.createPlant("shrub", "Boxwood", "Europe", "Needs well-draining soil", "Shrub");
-        Plants plant3 = PlantFactory.createPlant("housePlant", "Peace Lily", "Central and South America", "Needs moderate watering", "House Plant");
-        Plants plant4 = PlantFactory.createPlant("housePlant", "Pothos", "Solomon Islands", "Needs occasional misting", "House Plant");
-        Plants plant5 = PlantFactory.createPlant("shrub", "Lilac", "Europe", "Needs full sun exposure", "Shrub");
-        Plants plant6 = PlantFactory.createPlant("floweringPlant", "Sunflower", "North America", "Requires well-drained soil", "Flowering Plant");
-        Plants plant7 = PlantFactory.createPlant("housePlant", "Snake Plant", "West Africa", "Requires low light", "House Plant");
-        Plants plant8 = PlantFactory.createPlant("shrub", "Azalea", "Asia", "Prefers acidic soil", "Shrub");
+
+        //Objects of the inner class
+        Plants plant1 = PlantFactory.createPlant("floweringPlant", "African Violet", "Tanzania", "Needs bright indirect light", "Flowering Plant", null);
+        Plants plant2 = PlantFactory.createPlant("shrub", "Boxwood", "Europe", "Needs well-draining soil", "Shrub", null);
+        Plants plant3 = PlantFactory.createPlant("housePlant", "Peace Lily", "Central and South America", "Needs moderate watering", "House Plant", null);
+        assert plant3 != null;
+        plant3.specifyCare("Water twice a week", true, "Well-draining potting mix");
+        Plants plant4 = PlantFactory.createPlant("housePlant", "Pothos", "Solomon Islands", "Needs occasional misting", "House Plant", null);
+        assert plant4 != null;
+        plant4.specifyCare("Water twice a week", true, "Well-draining potting mix");
+        Plants plant5 = PlantFactory.createPlant("shrub", "Lilac", "Europe", "Needs full sun exposure", "Shrub", null);
+        Plants plant6 = PlantFactory.createPlant("floweringPlant", "Sunflower", "North America", "Requires well-drained soil", "Flowering Plant", null);
+        Plants plant7 = PlantFactory.createPlant("housePlant", "Snake Plant", "West Africa", "Requires low light", "House Plant", null);
+        assert plant7 != null;
+        plant7.specifyCare("Water twice a week", true, "Well-draining potting mix");
+        Plants plant8 = PlantFactory.createPlant("shrub", "Azalea", "Asia", "Prefers acidic soil", "Shrub", null);
+
 
         Greenhouse greenhouse = new Greenhouse();
         greenhouse.buyPlant(plant1);
@@ -29,7 +38,6 @@ public class MyProgram {
 
         System.out.println(plant1.getInfoAboutPlant());
         greenhouse.water();
-        greenhouse.changeTemperature();
 
         greenhouse.removePlant(plant4);
         greenhouse.displayPlantsByType();
@@ -55,6 +63,51 @@ public class MyProgram {
             ((FloweringPlant) plant1).setName("Tanzanian Violet");
             System.out.println(((FloweringPlant) plant1).getName());
         }
+
+        Greenhouse.TemperatureController.checkTemperature(); //Method from the nested class
+        System.out.println(plant3.getCareInfo());//Method from the inner class
+
+        //Anonymous class
+        Plants customPlant = new Plants() {
+            final String name = "Basil";
+            final String nativeRegion = "India";
+            public String specialNeeds;
+            final String type = "Herb";
+
+            @Override
+            public String getType() {
+                return type;
+            }
+
+            @Override
+            public String getInfoAboutPlant() {
+                return "Name: " + name + ", Native Region: " + nativeRegion + ", Special needs: " + specialNeeds + ", Type: " + type;
+            }
+
+            @Override
+            public String getRegion() {
+                return nativeRegion;
+            }
+
+            @Override
+            public void updateInfoAboutPlant(String info) {
+                specialNeeds = info;
+
+            }
+
+            @Override
+            public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+                this.specialNeeds = specialNeeds;
+            }
+
+            @Override
+            public String getCareInfo() {
+                return null;
+            }
+        };
+        customPlant.updateInfoAboutPlant("Needs to be in the shadow"); //Methods from anonymous class
+        System.out.println(customPlant.getInfoAboutPlant());
+
     }
 }
 

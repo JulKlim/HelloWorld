@@ -7,5 +7,9 @@ public interface Plants {
 
     String getRegion();
 
-    void updateInfoAboutPlant(String info);
+    public void updateInfoAboutPlant(String info);
+
+    void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType);
+
+    String getCareInfo();
 }

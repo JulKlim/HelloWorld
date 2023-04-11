@@ -33,6 +33,11 @@ public class Shrub implements Plants {
     }
 
     @Override
+    public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+
+    }
+
+    @Override
     public String getType() {
         return "Shrub";
     }
@@ -49,4 +54,11 @@ public class Shrub implements Plants {
     public void changeForm() {
         System.out.println("The form is changed");
     }
+
+    @Override
+    public String getCareInfo() {
+        return null;
+    }
+
 }
+

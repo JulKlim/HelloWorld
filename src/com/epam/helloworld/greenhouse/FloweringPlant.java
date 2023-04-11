@@ -32,6 +32,11 @@ public class FloweringPlant implements Plants {
     }
 
     @Override
+    public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+
+    }
+
+    @Override
     public String getType() {
         return "FloweringPlant";
     }
@@ -47,5 +52,10 @@ public class FloweringPlant implements Plants {
 
     public void fertilize() {
         System.out.println("The Flowering plant is fertilized");
+    }
+
+    @Override
+    public String getCareInfo() {
+        return null;
     }
 }
