@@ -4,17 +4,19 @@ public class MyProgram {
     public static void main(String[] args) {
 
         //Objects of the inner class
-        HousePlant.HouseplantCare plant3Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water twice a week", true, "Well-draining potting mix");
-        HousePlant.HouseplantCare plant4Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water every 7-10 days", true, "Well-draining potting mix");
-        HousePlant.HouseplantCare plant7Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water once in 3 days", false, "Well-draining potting mix");
-
         Plants plant1 = PlantFactory.createPlant("floweringPlant", "African Violet", "Tanzania", "Needs bright indirect light", "Flowering Plant", null);
         Plants plant2 = PlantFactory.createPlant("shrub", "Boxwood", "Europe", "Needs well-draining soil", "Shrub", null);
-        Plants plant3 = PlantFactory.createPlant("housePlant", "Peace Lily", "Central and South America", "Needs moderate watering", "House Plant", plant3Care);
-        Plants plant4 = PlantFactory.createPlant("housePlant", "Pothos", "Solomon Islands", "Needs occasional misting", "House Plant", plant4Care);
+        Plants plant3 = PlantFactory.createPlant("housePlant", "Peace Lily", "Central and South America", "Needs moderate watering", "House Plant", null);
+        assert plant3 != null;
+        plant3.specifyCare("Water twice a week", true, "Well-draining potting mix");
+        Plants plant4 = PlantFactory.createPlant("housePlant", "Pothos", "Solomon Islands", "Needs occasional misting", "House Plant", null);
+        assert plant4 != null;
+        plant4.specifyCare("Water twice a week", true, "Well-draining potting mix");
         Plants plant5 = PlantFactory.createPlant("shrub", "Lilac", "Europe", "Needs full sun exposure", "Shrub", null);
         Plants plant6 = PlantFactory.createPlant("floweringPlant", "Sunflower", "North America", "Requires well-drained soil", "Flowering Plant", null);
-        Plants plant7 = PlantFactory.createPlant("housePlant", "Snake Plant", "West Africa", "Requires low light", "House Plant", plant7Care);
+        Plants plant7 = PlantFactory.createPlant("housePlant", "Snake Plant", "West Africa", "Requires low light", "House Plant", null);
+        assert plant7 != null;
+        plant7.specifyCare("Water twice a week", true, "Well-draining potting mix");
         Plants plant8 = PlantFactory.createPlant("shrub", "Azalea", "Asia", "Prefers acidic soil", "Shrub", null);
 
 
@@ -63,7 +65,7 @@ public class MyProgram {
         }
 
         Greenhouse.TemperatureController.checkTemperature(); //Method from the nested class
-        System.out.println(plant3Care.getInfoAboutHousePlant());//Method from the inner class
+        System.out.println(plant3.getCareInfo());//Method from the inner class
 
         //Anonymous class
         Plants customPlant = new Plants() {
@@ -91,6 +93,16 @@ public class MyProgram {
             public void updateInfoAboutPlant(String info) {
                 specialNeeds = info;
 
+            }
+
+            @Override
+            public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+                this.specialNeeds = specialNeeds;
+            }
+
+            @Override
+            public String getCareInfo() {
+                return null;
             }
         };
         customPlant.updateInfoAboutPlant("Needs to be in the shadow"); //Methods from anonymous class

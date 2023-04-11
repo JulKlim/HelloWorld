@@ -8,4 +8,8 @@ public interface Plants {
     String getRegion();
 
     public void updateInfoAboutPlant(String info);
+
+    void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType);
+
+    String getCareInfo();
 }

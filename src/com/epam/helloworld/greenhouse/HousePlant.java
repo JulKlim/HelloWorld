@@ -70,4 +70,14 @@ public class HousePlant implements Plants {
             return "Watering instructions: " + wateringInstructions + ",  Is fertilize needed: " + needsFertilizer + ", Soil type: " + soilType;
         }
     }
+
+    @Override
+    public void specifyCare(String wateringInstructions, boolean needsFertilizer, String soilType) {
+        this.care = new HouseplantCare(wateringInstructions, needsFertilizer, soilType);
+    }
+
+    @Override
+    public String getCareInfo() {
+        return care.getInfoAboutHousePlant();
+    }
 }
