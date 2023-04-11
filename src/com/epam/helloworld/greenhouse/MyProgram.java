@@ -4,9 +4,9 @@ public class MyProgram {
     public static void main(String[] args) {
 
         //Objects of the inner class
-        HousePlant.HouseplantCare plant3Care = new HousePlant("Peace Lily", "Central and South America", "Needs moderate watering", "House Plant", null).new HouseplantCare("Water twice a week", true, "Well-draining potting mix");
-        HousePlant.HouseplantCare plant4Care = new HousePlant("Pothos", "Solomon Islands", "Needs occasional misting", "House Plant", null).new HouseplantCare("Water every 7-10 days", true, "Well-draining potting mix");
-        HousePlant.HouseplantCare plant7Care = new HousePlant("Snake Plant", "West Africa", "Requires low light", "House Plant", null).new HouseplantCare("Water once in 3 days", false, "Well-draining potting mix");
+        HousePlant.HouseplantCare plant3Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water twice a week", true, "Well-draining potting mix");
+        HousePlant.HouseplantCare plant4Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water every 7-10 days", true, "Well-draining potting mix");
+        HousePlant.HouseplantCare plant7Care = new HousePlant(" ", " ", " ", "House Plant", null).new HouseplantCare("Water once in 3 days", false, "Well-draining potting mix");
 
         Plants plant1 = PlantFactory.createPlant("floweringPlant", "African Violet", "Tanzania", "Needs bright indirect light", "Flowering Plant", null);
         Plants plant2 = PlantFactory.createPlant("shrub", "Boxwood", "Europe", "Needs well-draining soil", "Shrub", null);
@@ -17,8 +17,6 @@ public class MyProgram {
         Plants plant7 = PlantFactory.createPlant("housePlant", "Snake Plant", "West Africa", "Requires low light", "House Plant", plant7Care);
         Plants plant8 = PlantFactory.createPlant("shrub", "Azalea", "Asia", "Prefers acidic soil", "Shrub", null);
 
-        //Object of the nested class
-        Greenhouse.TemperatureController temperatureController = new Greenhouse.TemperatureController(9);
 
         Greenhouse greenhouse = new Greenhouse();
         greenhouse.buyPlant(plant1);
@@ -65,7 +63,7 @@ public class MyProgram {
         }
 
         Greenhouse.TemperatureController.checkTemperature(); //Method from the nested class
-        System.out.println(((HousePlant.HouseplantCare) plant3Care).getInfoAboutHousePlant());//Method from the inner class
+        System.out.println(plant3Care.getInfoAboutHousePlant());//Method from the inner class
 
         //Anonymous class
         Plants customPlant = new Plants() {
