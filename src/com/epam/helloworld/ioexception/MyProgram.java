@@ -1,7 +1,8 @@
 package com.epam.helloworld.ioexception;
-import java.util.Scanner;
-public class MyProgram {
 
+import java.util.Scanner;
+
+public class MyProgram {
 
     public static void main(String[] args) {
 
@@ -67,5 +68,5 @@ public class MyProgram {
                 System.out.println(e.getMessage());
             }
         } while (choice != 4);
-        }
     }
+}

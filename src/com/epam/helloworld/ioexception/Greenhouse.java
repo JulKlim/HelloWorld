@@ -1,4 +1,5 @@
 package com.epam.helloworld.ioexception;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
@@ -35,7 +36,6 @@ public class Greenhouse {
                 writer.write(plant.getName() + "," + plant.getRegion() + "," + plant.getSpecialNeeds() + "," + plant.getType());
                 writer.newLine();
             }
-            System.out.println("Writing plants to file: " + FILE_NAME);
             writer.close();
         } catch (IOException e) {
             System.out.println("An error occurred during writing to the file: " + e.getMessage());
@@ -63,28 +63,29 @@ public class Greenhouse {
         return plants;
     }
 
-        public void displayPlantsByType() {
-            System.out.println("Plants in the greenhouse sorted by type:");
-            List<Plant> sortedPlants = plants.stream()
-                    .sorted(Comparator.comparing(Plant::getType))
-                    .toList();
+    public void displayPlantsByType() {
+        System.out.println("Plants in the greenhouse sorted by type:");
+        List<Plant> sortedPlants = plants.stream()
+                .sorted(Comparator.comparing(Plant::getType))
+                .toList();
 
-            for (Plant plant : sortedPlants) {
-                System.out.println(plant.getInfoAboutPlant());
-            }
+        for (Plant plant : sortedPlants) {
+            System.out.println(plant.getInfoAboutPlant());
         }
+    }
+
     public void displayPlantsByName(String name) {
         List<Plant> sortedPlants = readPlantsFromFile().stream()
                 .sorted(Comparator.comparing(Plant::getRegion))
                 .toList();
 
-            for (Plant plant: plants) {
-                if (plant.getName().equals(name)) {
-                    System.out.println(plant.getInfoAboutPlant());
-                    return;
-                }
+        for (Plant plant : plants) {
+            if (plant.getName().equals(name)) {
+                System.out.println(plant.getInfoAboutPlant());
+                return;
             }
-            System.out.println("No plant with the name '" + name + "' found in the greenhouse.");
+        }
+        System.out.println("No plant with the name '" + name + "' found in the greenhouse.");
 
     }
 }

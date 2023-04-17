@@ -1,13 +1,13 @@
 package com.epam.helloworld.ioexception;
 
 public interface Plant {
-        String getType();
+    String getType();
 
-        String getInfoAboutPlant();
+    String getInfoAboutPlant();
 
-        String getRegion();
+    String getRegion();
 
-        String getName();
+    String getName();
 
-        String getSpecialNeeds();
+    String getSpecialNeeds();
 }
