@@ -1,0 +1,22 @@
+3 data tables were created using MS Server and MS SQL Management Studio;
+The queries for tables creation are the following:
+
+CREATE TABLE plants (
+   plant_id INT PRIMARY KEY,
+   plant_name VARCHAR(50) NOT NULL,
+   plant_type VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE greenhouse (
+   greenhouse_id INT PRIMARY KEY,
+   location VARCHAR(50) NOT NULL,
+   plant_id INT,
+   FOREIGN KEY (plant_id) REFERENCES plants (plant_id) ON DELETE SET NULL
+);
+
+CREATE TABLE gardener (
+   gardener_id INT PRIMARY KEY,
+   name VARCHAR(50) NOT NULL,
+   greenhouse_id INT,
+   FOREIGN KEY (greenhouse_id) REFERENCES greenhouse (greenhouse_id)
+);
